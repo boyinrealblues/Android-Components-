@@ -13,12 +13,14 @@ class MainActivityViewModel : ViewModel()
 
      private var finished = MutableLiveData<Boolean>()
 
+     var timerValue = MutableLiveData<Long>()
+
     fun getSeconds() : LiveData<Int> = seconds                     //Getters
 
     fun getFinished() : LiveData<Boolean> = finished
 
     fun startTimer() {                         //Function to start the timer
-        timer = object : CountDownTimer(10000,1000){         //<millisInFuture : Start Limit of Timer> , <countDownInterval : Step Interval>
+        timer = object : CountDownTimer(timerValue.value as Long,1000){         //<millisInFuture : Start Limit of Timer> , <countDownInterval : Step Interval>
 
             override fun onTick(millisUntilFinished: Long) {  //Called after evey second (1000millis)
 
@@ -35,5 +37,9 @@ class MainActivityViewModel : ViewModel()
             }
 
         }.start()
+    }
+
+    fun stopTimer(){
+        timer.cancel()
     }
 }

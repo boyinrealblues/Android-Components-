@@ -48,7 +48,7 @@ class GameFragment : Fragment(){
 
         model.check.observe(viewLifecycleOwner , {
             if (it) {
-                 val bundle : Bundle = bundleOf(SCORE_RESULT to model.score)
+                 val bundle : Bundle = bundleOf(SCORE_RESULT to model.score.value!!.toInt())
                 findNavController().navigate(R.id.next_action,bundle)
             }
         })

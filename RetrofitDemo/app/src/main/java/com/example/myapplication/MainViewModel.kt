@@ -8,10 +8,28 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository : Repository) : ViewModel() {
 
+    private var cnt =0
     private val _retro : MutableLiveData<List<Post>> = MutableLiveData()
+
+    private val _current : MutableLiveData<Post> = MutableLiveData()
+
+    val current : LiveData<Post>
+        get() = _current
+
 
     val retro : LiveData<List<Post>>
     get() = _retro
+
+    fun changeData(){
+        getData()
+        if(cnt < _retro.value!!.size){
+            _current.value = _retro.value!!.get(cnt)
+            cnt++
+        }else
+        {
+            cnt=0
+        }
+    }
 
     fun  getData(){
         viewModelScope.launch{

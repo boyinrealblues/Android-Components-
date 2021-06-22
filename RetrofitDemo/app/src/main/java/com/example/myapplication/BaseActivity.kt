@@ -8,6 +8,7 @@ class BaseActivity : AppCompatActivity() {
 
     lateinit private var mProgessBar : ProgressBar
     override fun setContentView(layoutResID: Int) {
+
         super.setContentView(layoutResID)
 
         val cons_layout = layoutInflater.inflate(R.layout.activity_base,null)

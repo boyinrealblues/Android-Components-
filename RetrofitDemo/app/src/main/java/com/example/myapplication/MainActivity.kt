@@ -22,21 +22,23 @@ class MainActivity : AppCompatActivity() {
          val repository = Repository()
          val viewModel = ViewModelProvider(this,MainViewModelFactory(repository)).get(MainViewModel(repository)::class.java)
 
-
-        viewModel.getData()
         binding.next.setOnClickListener {
             viewModel.changeData()
         }
 
         viewModel.current.observe(this,{
-            val sb : StringBuilder = StringBuilder()
-            sb.append("UserID : "+it.userId.toString()+"\n")
-            sb.append("ID : "+it.id.toString()+"\n")
-            sb.append("Title : "+it.title+"\n")
-            sb.append("Body : "+it.body+"\n")
-            binding.text.setText(sb)
+            attachData(it)
         })
 
+    }
+
+    fun attachData(it:Post){
+        val sb : StringBuilder = StringBuilder()
+        sb.append("UserID : "+it.userId.toString()+"\n")
+        sb.append("ID : "+it.id.toString()+"\n")
+        sb.append("Title : "+it.title+"\n")
+        sb.append("Body : "+it.body+"\n")
+        binding.text.setText(sb)
 
     }
 }

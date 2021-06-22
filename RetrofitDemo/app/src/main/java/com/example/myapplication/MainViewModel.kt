@@ -16,26 +16,27 @@ class MainViewModel(private val repository : Repository) : ViewModel() {
     val current : LiveData<Post>
         get() = _current
 
+init{
+    getData()
+}
 
-    val retro : LiveData<List<Post>>
-    get() = _retro
 
     fun changeData(){
-        getData()
         if(cnt < _retro.value!!.size){
             _current.value = _retro.value!!.get(cnt)
             cnt++
-        }else
-        {
-            cnt=0
+        }else {
+            cnt = 0
+            _current.value = _retro.value!!.get(cnt)
+
         }
     }
+
 
     fun  getData(){
         viewModelScope.launch{
             _retro.value = repository.getPost()
         }
-
     }
 
 }

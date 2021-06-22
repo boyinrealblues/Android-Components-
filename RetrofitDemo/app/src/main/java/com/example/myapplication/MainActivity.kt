@@ -17,11 +17,13 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.retro.observe(this, {
 
-          Log.e("BODY",it.body)
-          Log.e("TITLE",it.title)
-          Log.e("ID",it.id.toString())
-          Log.e("USERID",it.userId.toString())
-           })
+            for(i in  it){
+                Log.e("BODY",i.body)
+                Log.e("ID",i.id.toString())
+                Log.e("TITLE",i.title)
+                Log.e("UserId",i.userId.toString())
+            }
+        })
 
         viewModel.getData()
 

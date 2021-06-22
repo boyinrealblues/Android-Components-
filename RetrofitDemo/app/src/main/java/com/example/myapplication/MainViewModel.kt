@@ -8,9 +8,9 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository : Repository) : ViewModel() {
 
-    private val _retro : MutableLiveData<Post> = MutableLiveData()
+    private val _retro : MutableLiveData<List<Post>> = MutableLiveData()
 
-    val retro : LiveData<Post>
+    val retro : LiveData<List<Post>>
     get() = _retro
 
     fun  getData(){

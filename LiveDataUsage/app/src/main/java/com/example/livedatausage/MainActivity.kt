@@ -34,9 +34,8 @@ class MainActivity : AppCompatActivity() {
         model.defaultData()
 
         binding.addButton.setOnClickListener {
-            if(model.c<10) {
                 model.addMoreData()
-            }
+
         }
 
 

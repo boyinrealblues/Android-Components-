@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity(){
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         //ViewModel Initialization
-        val model = ViewModelProvider(this).get(myViewModel::class.java)
+        val model = ViewModelProvider(this).get(MyViewModel::class.java)
 
         //Adding default objects to the observer _dataSet
         model.addNewObjects()

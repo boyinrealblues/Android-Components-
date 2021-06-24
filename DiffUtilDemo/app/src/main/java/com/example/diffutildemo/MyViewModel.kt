@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class myViewModel : ViewModel() {
+class MyViewModel : ViewModel() {
     //The Details Class LiveData-List
     private val _dataSet : MutableLiveData<MutableList<Details>> = MutableLiveData()
 

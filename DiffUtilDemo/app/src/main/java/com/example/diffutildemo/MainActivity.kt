@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity(){
 
         //ViewBinding Initialization
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+        //the adapter needs to be placed in the context where the list is updateed
 
         //ViewModel Initialization
         val model = ViewModelProvider(this).get(MyViewModel::class.java)
@@ -34,8 +36,11 @@ class MainActivity : AppCompatActivity(){
 
         //Whenever the value changes update pass new list to the adapter
         model.dataSet.observe(this,{
+
+            //It doesn't matter where you put the binding to recyclerview in the context
             Log.e(TAG,it.toString())
             myAdapter.setData(it)
+            binding.recyclerView.adapter = myAdapter
 
         })
 
@@ -52,10 +57,7 @@ class MainActivity : AppCompatActivity(){
         })
 
         //RecyclerView Init
-        binding.recyclerView.apply{
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = myAdapter
-            }
+        myAdapter.setData(mutableListOf(Details(6,"Itachi","Uchiha","sharinganUser1@akatsuki.com")))
     }
 
 }

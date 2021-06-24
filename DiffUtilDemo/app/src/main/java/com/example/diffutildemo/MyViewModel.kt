@@ -55,17 +55,18 @@ class MyViewModel : ViewModel() {
             mutableListOf(
                     Details(1, "Miku", "Nanako", "justmiku@nanako.com"),
                     Details(2, "Itsuki", "Nanako", "itsuki2405@nanako.com"),
-                    Details(3, "Yotsuba", "Nanako", "strongYotsuba@nanako.com"),
-                    Details(4, "Nino", "Nanako", "baby@nanako.com"),
-                    Details(5, "Ichika", "Nanako", "Ichika@nanako.com"),
-            )
+                           )
 
     companion object {
 
         val newMutableList = mutableListOf(
+                Details(3, "Yotsuba", "Nanako", "strongYotsuba@nanako.com"),
+                Details(4, "Nino", "Nanako", "baby@nanako.com"),
+                Details(5, "Ichika", "Nanako", "Ichika@nanako.com"),
                 Details(6, "Eren", "Yaeger", "erenYaeger@survercorps.com"),
                 Details(7, "Erwin", "Brown", "erwinBrown@survercorps.com"),
-                Details(8, "Levi", "Ackermann", "leviAckermann@survercorps.com"))
+                Details(8, "Levi", "Ackermann", "leviAckermann@survercorps.com"),
+                Details(9, "Mikasa", "Ackermann", "MikasaAckermann@survercorps.com"))
 
     }
 

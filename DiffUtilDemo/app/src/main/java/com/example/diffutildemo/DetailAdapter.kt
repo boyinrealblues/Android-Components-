@@ -46,6 +46,7 @@ class DetailAdapter : RecyclerView.Adapter<DetailAdapter.MyViewHolder>(){
         //????
         val calcDiff= DiffUtil.calculateDiff(diff)
         oldList = newList
+        Log.e(TAG,newList.toString())
         //Dispatch update - Used always inside an adapter
         calcDiff.dispatchUpdatesTo(this)
     }

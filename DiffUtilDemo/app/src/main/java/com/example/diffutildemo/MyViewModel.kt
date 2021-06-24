@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MyViewModel : ViewModel() {
+
+    var c=0
     //The Details Class LiveData-List
     private val _dataSet : MutableLiveData<MutableList<Details>> = MutableLiveData()
 
@@ -34,7 +36,7 @@ class MyViewModel : ViewModel() {
                 Details(7,"Erwin","Brown","erwinBrown@survercorps.com"),
                 Details(8,"Levi","Ackermann","leviAckermann@survercorps.com"))
 
-            if(!newMutableList.isEmpty()){
+            if(c>new){
 
                 //Adds the first Instance from the newMutableList
                 _dataSet.value!!.add(newMutableList[0])

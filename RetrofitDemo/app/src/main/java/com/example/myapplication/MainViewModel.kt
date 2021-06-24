@@ -16,9 +16,9 @@ class MainViewModel(private val repository : Repository) : ViewModel() {
     val current : LiveData<Post>
         get() = _current
 
-init{
-    getData()
-}
+    init{
+        getData()
+    }
 
 
     fun changeData(){

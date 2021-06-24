@@ -1,5 +1,6 @@
 package com.example.diffutildemo
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.diffutildemo.Util.MyDiff
 
+private const val TAG = "DetailAdapter"
 //Adapter Class
 class DetailAdapter : RecyclerView.Adapter<DetailAdapter.MyViewHolder>(){
 
@@ -55,6 +57,7 @@ class DetailAdapter : RecyclerView.Adapter<DetailAdapter.MyViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        Log.e(TAG,oldList.toString())
         holder.bind(oldList[position])
     }
 

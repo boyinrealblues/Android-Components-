@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.diffutildemo.databinding.ActivityMainBinding
 
+private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity(){
 
     lateinit private var binding : ActivityMainBinding
@@ -33,7 +34,9 @@ class MainActivity : AppCompatActivity(){
 
         //Whenever the value changes update pass new list to the adapter
         model.dataSet.observe(this,{
+            Log.e(TAG,it.toString())
             myAdapter.setData(it)
+
         })
 
         //OnClick make the observer have a new list

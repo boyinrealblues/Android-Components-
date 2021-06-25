@@ -46,7 +46,7 @@ class DetailAdapter : RecyclerView.Adapter<DetailAdapter.MyViewHolder>(){
         //????
         val calcDiff= DiffUtil.calculateDiff(diff)
         oldList = newList
-        Log.e(TAG,newList.toString())
+        Log.e(TAG,oldList.toString())
         //Dispatch update - Used always inside an adapter
         calcDiff.dispatchUpdatesTo(this)
     }
@@ -58,7 +58,7 @@ class DetailAdapter : RecyclerView.Adapter<DetailAdapter.MyViewHolder>(){
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        Log.e(TAG,oldList.toString())
+
         holder.bind(oldList[position])
     }
 

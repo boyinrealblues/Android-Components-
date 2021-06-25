@@ -22,10 +22,10 @@ class MyViewModel : ViewModel(){
                 _data.value = maker(_data.value, newList[0])
                 newList.removeAt(0)
                 Log.e(TAG,newList.toString())
-            }
-    }
+       }
+      }
 
-    private fun maker(value: MutableList<Int>?, i: Int): MutableList<Int>? {
+    private fun maker(value: MutableLi st<Int>?, i: Int): MutableList<Int>? {
         value!!.add(i)
         return value
     }

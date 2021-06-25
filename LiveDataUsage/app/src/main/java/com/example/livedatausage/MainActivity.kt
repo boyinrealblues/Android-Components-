@@ -2,7 +2,9 @@ package com.example.livedatausage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Log
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,27 +22,14 @@ class MainActivity : AppCompatActivity() {
         MyAdapter()
     }
 
+    lateinit var x:List<Int>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this , R.layout.activity_main)
-        model = ViewModelProvider(this).get(MyViewModel::class.java)
-
-        model.data.observe(this,{
-            Log.e(TAG,it.toString())
-            mAdapter.setData(it)
-        })
-
-        model.defaultData()
-
-        binding.addButton.setOnClickListener {
-                model.addMoreData()
-
-        }
-
 
         binding.recyclerView.apply{
-            layoutManager = LinearLayoutManager(this.context) //use this.context as arg
+            layoutManager = LinearLayoutManager(this@MainActivity) //use this.context as arg
             adapter = mAdapter
         }
 

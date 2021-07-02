@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         model.weatherForecast.observe(this,{
             val sb = StringBuffer()
             sb.append(it.city_name.toUpperCase()+"\n"+it.country_code+"\n"+it.lat+"\n"+it.lon+"\n"+it.city_name+"\n"+it.state_code)
-            binding.weatherText.setText(sb)T
+            binding.weatherText.setText(sb)
         })
 
     }

@@ -21,20 +21,8 @@ class WeatherViewModel : ViewModel() {
 
     fun getWeatherForeCast(latitude : Double , longtitude : Double){
         viewModelScope.launch{
-            RetroFitInit.mWeatherApi.getForecast(latitude,longtitude).enqueue(object :
-                Callback<Weather> {
-                override fun onResponse(call: Call<Weather>, response: Response<Weather>) {
-                    if (!response.isSuccessful)
-
-                    _weatherForecast.value = response.body()
-                }
-
-                override fun onFailure(call: Call<Weather>, t: Throwable) {
-
-                }
-
-            })
-
+            _weatherForecast.value =
+                RetroFitInit.mWeatherApi.getForecast(latitude,longtitude)
         }
     }
 

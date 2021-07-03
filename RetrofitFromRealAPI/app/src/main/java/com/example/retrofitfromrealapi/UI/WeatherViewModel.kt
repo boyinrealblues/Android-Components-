@@ -19,11 +19,15 @@ class WeatherViewModel : ViewModel() {
     val weatherForecast : LiveData<Weather>
     get() = _weatherForecast
 
+
     fun getWeatherForeCast(latitude : Double , longtitude : Double){
-        viewModelScope.launch{
-            _weatherForecast.value =
-                RetroFitInit.mWeatherApi.getForecast(latitude,longtitude)
+                 viewModelScope.launch{
+                        _weatherForecast.value =
+                            RetroFitInit.mWeatherApi.getForecast(latitude, longtitude)
+                    }
+
         }
-    }
 
     }
+
+
